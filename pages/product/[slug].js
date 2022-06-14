@@ -5,6 +5,7 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+import Product from "../../components/Product";
 
 import { client, urlFor } from "../../lib/client";
 
@@ -15,7 +16,10 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src={urlFor(image && image[0])} />
+            <img
+              src={urlFor(image && image[0])}
+              className="product-detail-image"
+            />
           </div>
           {/* <div className="small-images-container">
             {image?.map((item, i) => (
@@ -24,7 +28,7 @@ const ProductDetails = ({ product, products }) => {
           </div> */}
         </div>
 
-        <div className="product-details-desc">
+        <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
             <div>
@@ -60,6 +64,17 @@ const ProductDetails = ({ product, products }) => {
             <button type="button" className="buy-now" onClick="">
               Buy Now
             </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="maylike-products-wrapper">
+        <h2>You may also like</h2>
+        <div className="marquee">
+          <div className="maylike-products-container track">
+            {products.map((item) => (
+              <Product key={item._id} product={item} />
+            ))}
           </div>
         </div>
       </div>
