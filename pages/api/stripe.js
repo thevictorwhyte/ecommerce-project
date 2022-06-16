@@ -14,7 +14,7 @@ export default async function handler(req, res) {
           { shipping_rate: "shr_1LBO6yDcY4wBJliWUHjdHqsg" },
           { shipping_rate: "shr_1LBP1aDcY4wBJliWaCyt9PtY" },
         ],
-        line_items: req.body.cartItems.map((item) => {
+        line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           const newImg = img
             .replace(
